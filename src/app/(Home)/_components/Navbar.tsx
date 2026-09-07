@@ -3,8 +3,8 @@ import { ArrowUpRight } from "lucide-react";
 
 function RelayLogo() {
   return (
-    <div className="flex items-center gap-2">
-      <div className="flex size-7 items-center justify-center rounded-md bg-primary text-primary-foreground">
+    <div className="flex items-center gap-2.5">
+      <div className="flex size-7 items-center justify-center rounded-[8px] bg-primary text-primary-foreground shadow-sm">
         <svg
           viewBox="0 0 24 24"
           fill="none"
@@ -31,8 +31,8 @@ function RelayLogo() {
         </svg>
       </div>
 
-      <span className="text-[15px] font-semibold tracking-[-0.02em]">
-        Relay
+      <span className="text-[15px] font-semibold tracking-[-0.03em]">
+        relay
       </span>
     </div>
   );
@@ -40,60 +40,60 @@ function RelayLogo() {
 
 export function Navbar() {
   return (
-   <header className="absolute inset-x-0 top-0 z-50 border-b border-border/70 bg-muted/30 backdrop-blur-sm">
-  <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-8">
-    {/* Logo */}
-    <Link
-      href="/"
-      className="transition-opacity hover:opacity-80"
-      aria-label="Relay home"
-    >
-      <RelayLogo />
-    </Link>
+    <header className="absolute inset-x-0 top-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
+      <div className="mx-auto flex h-[68px] w-full max-w-[1400px] items-center justify-between px-6 lg:px-10">
+        {/* Logo */}
+        <Link
+          href="/"
+          aria-label="Relay home"
+          className="shrink-0 transition-opacity hover:opacity-80"
+        >
+          <RelayLogo />
+        </Link>
 
-    {/* Navigation */}
-    <nav className="hidden items-center gap-8 md:flex">
-      <Link
-        href="#product"
-        className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-      >
-        Product
-      </Link>
+        {/* Navigation */}
+        <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-2 md:flex">
+          <Link
+            href="#product"
+            className="rounded-full px-3.5 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+          >
+            Product
+          </Link>
 
-      <Link
-        href="#workflow"
-        className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-      >
-        Workflow
-      </Link>
+          <Link
+            href="#workflow"
+            className="rounded-full px-3.5 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+          >
+            Workflow
+          </Link>
 
-      <Link
-        href="#about"
-        className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-      >
-        About
-      </Link>
-    </nav>
+          <Link
+            href="#about"
+            className="rounded-full px-3.5 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+          >
+            About
+          </Link>
+        </nav>
 
-    {/* Actions */}
-    <div className="flex items-center gap-5">
-      <Link
-        href="/login"
-        className="hidden text-sm font-medium text-muted-foreground transition-colors hover:text-foreground sm:block"
-      >
-        Sign in
-      </Link>
+        {/* Actions */}
+        <div className="flex items-center gap-2">
+          <Link
+            href="/login"
+            className="hidden rounded-full px-3.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground sm:block"
+          >
+            Sign in
+          </Link>
 
-      <Link
-        href="/signup"
-        className="group inline-flex h-9 items-center gap-1.5 rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground shadow-sm transition-all hover:bg-primary/90"
-      >
-        Get started
+          <Link
+            href="/signup"
+            className="group inline-flex h-9 items-center gap-1.5 rounded-full bg-primary px-4 text-sm font-medium text-primary-foreground shadow-sm transition-all duration-200 hover:-translate-y-px hover:bg-primary/90 hover:shadow-md"
+          >
+            Get started
 
-        <ArrowUpRight className="size-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-      </Link>
-    </div>
-  </div>
-</header>
+            <ArrowUpRight className="size-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </Link>
+        </div>
+      </div>
+    </header>
   );
 }
