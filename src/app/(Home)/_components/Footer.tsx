@@ -88,7 +88,7 @@ export function Footer() {
               <RelayMark />
 
               <span className="text-base font-semibold tracking-[-0.025em]">
-                relay
+                Relay
               </span>
             </Link>
 

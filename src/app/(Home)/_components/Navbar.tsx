@@ -32,7 +32,7 @@ function RelayLogo() {
       </div>
 
       <span className="text-[15px] font-semibold tracking-[-0.03em]">
-        relay
+        Relay
       </span>
     </div>
   );

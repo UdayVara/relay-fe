@@ -3,128 +3,214 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* =========================================================
+   RELAY — GLOBAL THEME
+   ========================================================= */
+
 :root {
   /* ─────────────────────────────────────────
-     RELAY LIGHT THEME
+     Base
      ───────────────────────────────────────── */
 
-  /* Base */
   --background: oklch(98.5% 0.008 285);
   --foreground: oklch(17% 0.02 270);
 
-  /* Surfaces */
+  /* ─────────────────────────────────────────
+     Surfaces
+     ───────────────────────────────────────── */
+
   --card: oklch(100% 0 0);
   --card-foreground: oklch(17% 0.02 270);
 
   --popover: oklch(100% 0 0);
   --popover-foreground: oklch(17% 0.02 270);
 
-  /* Brand */
+  /* ─────────────────────────────────────────
+     Brand — Relay Violet
+     ───────────────────────────────────────── */
+
   --primary: oklch(48% 0.20 275);
   --primary-foreground: oklch(100% 0 0);
 
-  /* Secondary */
+  /* ─────────────────────────────────────────
+     Secondary
+     ───────────────────────────────────────── */
+
   --secondary: oklch(96% 0.008 285);
   --secondary-foreground: oklch(25% 0.02 270);
 
-  /* Muted */
+  /* ─────────────────────────────────────────
+     Muted
+     ───────────────────────────────────────── */
+
   --muted: oklch(96% 0.008 285);
   --muted-foreground: oklch(48% 0.025 270);
 
-  /* Accent */
+  /* ─────────────────────────────────────────
+     Accent
+     ───────────────────────────────────────── */
+
   --accent: oklch(95% 0.025 275);
   --accent-foreground: oklch(40% 0.16 275);
 
-  /* Destructive */
+  /* ─────────────────────────────────────────
+     Destructive
+     ───────────────────────────────────────── */
+
   --destructive: oklch(57% 0.22 25);
 
-  /* Borders / inputs */
+  /* ─────────────────────────────────────────
+     Borders / Inputs
+     ───────────────────────────────────────── */
+
   --border: oklch(91% 0.012 270);
   --input: oklch(91% 0.012 270);
   --ring: oklch(48% 0.20 275);
 
-  /* Charts */
+  /* ─────────────────────────────────────────
+     Charts
+     ───────────────────────────────────────── */
+
   --chart-1: oklch(48% 0.20 275);
   --chart-2: oklch(60% 0.15 160);
   --chart-3: oklch(65% 0.17 70);
   --chart-4: oklch(60% 0.18 315);
   --chart-5: oklch(60% 0.20 25);
 
-  /* Sidebar */
+  /* ─────────────────────────────────────────
+     Sidebar
+     ───────────────────────────────────────── */
+
   --sidebar: oklch(97.5% 0.008 285);
   --sidebar-foreground: oklch(25% 0.02 270);
+
   --sidebar-primary: oklch(48% 0.20 275);
   --sidebar-primary-foreground: oklch(100% 0 0);
+
   --sidebar-accent: oklch(94.5% 0.025 275);
   --sidebar-accent-foreground: oklch(40% 0.16 275);
+
   --sidebar-border: oklch(91% 0.012 270);
   --sidebar-ring: oklch(48% 0.20 275);
 
-  /* Radius */
+  /* ─────────────────────────────────────────
+     Radius
+     ───────────────────────────────────────── */
+
   --radius: 0.5rem;
 }
 
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
 .dark {
   /* ─────────────────────────────────────────
-     RELAY DARK THEME
+     Base
      ───────────────────────────────────────── */
 
-  /* Base */
   --background: oklch(12% 0.015 270);
   --foreground: oklch(96% 0.008 285);
 
-  /* Surfaces */
+  /* ─────────────────────────────────────────
+     Surfaces
+     ───────────────────────────────────────── */
+
   --card: oklch(15% 0.018 270);
   --card-foreground: oklch(96% 0.008 285);
 
   --popover: oklch(15% 0.018 270);
   --popover-foreground: oklch(96% 0.008 285);
 
-  /* Brand */
+  /* ─────────────────────────────────────────
+     Brand
+     ───────────────────────────────────────── */
+
   --primary: oklch(58% 0.20 275);
   --primary-foreground: oklch(100% 0 0);
 
-  /* Secondary */
+  /* ─────────────────────────────────────────
+     Secondary
+     ───────────────────────────────────────── */
+
   --secondary: oklch(19% 0.018 270);
   --secondary-foreground: oklch(91% 0.01 285);
 
-  /* Muted */
+  /* ─────────────────────────────────────────
+     Muted
+     ───────────────────────────────────────── */
+
   --muted: oklch(19% 0.018 270);
   --muted-foreground: oklch(66% 0.025 270);
 
-  /* Accent */
+  /* ─────────────────────────────────────────
+     Accent
+     ───────────────────────────────────────── */
+
   --accent: oklch(23% 0.06 275);
   --accent-foreground: oklch(82% 0.12 275);
 
-  /* Destructive */
+  /* ─────────────────────────────────────────
+     Destructive
+     ───────────────────────────────────────── */
+
   --destructive: oklch(62% 0.20 25);
 
-  /* Borders / inputs */
+  /* ─────────────────────────────────────────
+     Borders / Inputs
+     ───────────────────────────────────────── */
+
   --border: oklch(24% 0.018 270);
   --input: oklch(24% 0.018 270);
   --ring: oklch(58% 0.20 275);
 
-  /* Charts */
+  /* ─────────────────────────────────────────
+     Charts
+     ───────────────────────────────────────── */
+
   --chart-1: oklch(58% 0.20 275);
   --chart-2: oklch(65% 0.15 160);
   --chart-3: oklch(72% 0.17 70);
   --chart-4: oklch(65% 0.18 315);
   --chart-5: oklch(65% 0.20 25);
 
-  /* Sidebar */
+  /* ─────────────────────────────────────────
+     Sidebar
+     ───────────────────────────────────────── */
+
   --sidebar: oklch(10% 0.015 270);
   --sidebar-foreground: oklch(91% 0.01 285);
+
   --sidebar-primary: oklch(58% 0.20 275);
   --sidebar-primary-foreground: oklch(100% 0 0);
+
   --sidebar-accent: oklch(20% 0.045 275);
   --sidebar-accent-foreground: oklch(82% 0.12 275);
+
   --sidebar-border: oklch(23% 0.018 270);
   --sidebar-ring: oklch(58% 0.20 275);
 
   --radius: 0.5rem;
 }
 
+
+/* =========================================================
+   TAILWIND THEME
+   ========================================================= */
+
 @theme inline {
+  /* ─────────────────────────────────────────
+     Fonts
+     ───────────────────────────────────────── */
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  /* ─────────────────────────────────────────
+     Colors
+     ───────────────────────────────────────── */
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
@@ -167,18 +253,87 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
+  /* ─────────────────────────────────────────
+     Radius
+     ───────────────────────────────────────── */
+
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 }
 
+
+/* =========================================================
+   BASE
+   ========================================================= */
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
 
+  html {
+    @apply scroll-smooth;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply min-h-screen bg-background text-foreground font-sans antialiased;
+  }
+
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: var(--accent-foreground);
+  }
+}
+
+
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-geist-sans);
+    letter-spacing: -0.025em;
+  }
+
+  h1 {
+    font-weight: 600;
+  }
+
+  h2,
+  h3 {
+    font-weight: 600;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   }
 }
