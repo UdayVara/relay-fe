@@ -78,14 +78,14 @@ export function Navbar() {
         {/* Actions */}
         <div className="flex items-center gap-2">
           <Link
-            href="/login"
+            href="/auth/login"
             className="hidden rounded-full px-3.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground sm:block"
           >
             Sign in
           </Link>
 
           <Link
-            href="/signup"
+            href="/auth/signup"
             className="group inline-flex h-9 items-center gap-1.5 rounded-full bg-primary px-4 text-sm font-medium text-primary-foreground shadow-sm transition-all duration-200 hover:-translate-y-px hover:bg-primary/90 hover:shadow-md"
           >
             Get started

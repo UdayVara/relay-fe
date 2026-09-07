@@ -108,7 +108,7 @@ export function Hero() {
             {/* CTA */}
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
-                href="/signup"
+                href="/auth/signup"
                 className="group inline-flex h-11 items-center justify-center gap-2 rounded-md bg-primary px-5 text-sm font-medium text-primary-foreground shadow-sm transition-all hover:-translate-y-0.5 hover:bg-primary/90"
               >
                 Start for free

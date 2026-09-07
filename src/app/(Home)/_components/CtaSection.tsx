@@ -45,7 +45,7 @@ export function CtaSection() {
 
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link
-                href="/signup"
+                href="/auth/signup"
                 className="group inline-flex h-11 items-center gap-2 rounded-md bg-background px-6 text-sm font-medium text-foreground shadow-lg transition-all hover:-translate-y-0.5 hover:bg-background/90"
               >
                 Start for free
@@ -54,7 +54,7 @@ export function CtaSection() {
               </Link>
 
               <Link
-                href="/login"
+                href="/auth/login"
                 className="inline-flex h-11 items-center justify-center rounded-md border border-primary-foreground/20 px-6 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary-foreground/10"
               >
                 Sign in
