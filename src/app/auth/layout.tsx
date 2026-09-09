@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Home } from "lucide-react";
 
 function RelayLogo() {
   return (
@@ -59,8 +59,7 @@ export default function AuthLayout({
             href="/"
             className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
-            <ArrowLeft className="size-3.5" />
-            Back to website
+            Back to Home
           </Link>
         </div>
       </header>
