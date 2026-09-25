@@ -6,4 +6,5 @@ export interface User {
   phone: string | null
   createdAt: string
   updatedAt: string
+  token: string 
 }

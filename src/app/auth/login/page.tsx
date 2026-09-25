@@ -1,14 +1,89 @@
+"use client";
+
 import Link from "next/link";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
+import { toast } from "@/components/ui/toast";
+
+import {
+  loginSchema,
+  type LoginFormValues,
+} from "./_schema/loginSchema";
 
 export default function LoginPage() {
+  const router = useRouter();
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<LoginFormValues>({
+    resolver: zodResolver(loginSchema),
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
+
+  const onSubmit = async (data: LoginFormValues) => {
+    const result = await signIn("credentials", {
+      email: data.email,
+      password: data.password,
+      redirect: false,
+    });
+
+    if (!result) {
+      toast.add({
+        type: "error",
+        title: "Sign in failed",
+        description: "Something went wrong. Please try again.",
+      });
+      return;
+    }
+
+    if (result.error) {
+      toast.add({
+        type: "error",
+        title: "Invalid login",
+        description: "The email or password you entered is incorrect.",
+        
+      });
+      return;
+    }
+
+    toast.add({
+      type: "success",
+      title: "Signed in successfully",
+      description: "Welcome back! Redirecting you to your workspace.",
+      timeout: 4000,
+    });
+
+    router.push("/");
+    router.refresh();
+  };
+
+  const handleGoogleLogin = async () => {
+    await signIn("google", {
+      callbackUrl: "/",
+    });
+  };
+
+  const handleGithubLogin = async () => {
+    await signIn("github", {
+      callbackUrl: "/",
+    });
+  };
+
   return (
     <div>
-      {/* Heading */}
+      {/* Header */}
       <div className="text-center">
         <h1 className="text-3xl font-semibold tracking-[-0.045em]">
           Welcome back
@@ -26,6 +101,7 @@ export default function LoginPage() {
             type="button"
             variant="outline"
             className="h-10"
+            onClick={handleGoogleLogin}
           >
             <GoogleIcon />
             Google
@@ -35,6 +111,7 @@ export default function LoginPage() {
             type="button"
             variant="outline"
             className="h-10"
+            onClick={handleGithubLogin}
           >
             <GithubIcon />
             GitHub
@@ -52,28 +129,36 @@ export default function LoginPage() {
           <Separator className="flex-1" />
         </div>
 
-        {/* Form */}
-        <form className="space-y-4">
+        {/* Login Form */}
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="space-y-4"
+          noValidate
+        >
+          {/* Email */}
           <div className="space-y-2">
-            <Label htmlFor="email">
-              Email
-            </Label>
+            <Label htmlFor="email">Email</Label>
 
             <Input
               id="email"
-              name="email"
               type="email"
               placeholder="you@company.com"
               autoComplete="email"
               className="h-11"
+              {...register("email")}
             />
+
+            {errors.email && (
+              <p className="text-sm text-destructive">
+                {errors.email.message}
+              </p>
+            )}
           </div>
 
+          {/* Password */}
           <div className="space-y-2">
             <div className="flex items-center justify-between">
-              <Label htmlFor="password">
-                Password
-              </Label>
+              <Label htmlFor="password">Password</Label>
 
               <Link
                 href="/auth/forgot-password"
@@ -85,22 +170,31 @@ export default function LoginPage() {
 
             <Input
               id="password"
-              name="password"
               type="password"
               placeholder="Enter your password"
               autoComplete="current-password"
               className="h-11"
+              {...register("password")}
             />
+
+            {errors.password && (
+              <p className="text-sm text-destructive">
+                {errors.password.message}
+              </p>
+            )}
           </div>
 
+          {/* Submit */}
           <Button
             type="submit"
             className="h-11 w-full"
+            disabled={isSubmitting}
           >
-            Sign in
+            {isSubmitting ? "Signing in..." : "Sign in"}
           </Button>
         </form>
 
+        {/* Signup */}
         <p className="text-center text-sm text-muted-foreground">
           Don&apos;t have an account?{" "}
           <Link
@@ -114,6 +208,10 @@ export default function LoginPage() {
     </div>
   );
 }
+
+/* --------------------------------
+ * Icons
+ * -------------------------------- */
 
 function GoogleIcon() {
   return (

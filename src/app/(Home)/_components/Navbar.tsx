@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { auth } from "@/auth/authconfig";
+import SignOut from "./SignoutAction";
 
 function RelayLogo() {
   return (
@@ -38,7 +40,10 @@ function RelayLogo() {
   );
 }
 
-export function Navbar() {
+export async function Navbar() {
+  const rawUser = await auth();
+  const isUserLoggedIn = !!rawUser?.user?.email;
+
   return (
     <header className="absolute inset-x-0 top-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
       <div className="mx-auto flex h-[68px] w-full max-w-[1400px] items-center justify-between px-6 lg:px-10">
@@ -77,21 +82,29 @@ export function Navbar() {
 
         {/* Actions */}
         <div className="flex items-center gap-2">
-          <Link
-            href="/auth/login"
-            className="hidden rounded-full px-3.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground sm:block"
-          >
-            Sign in
-          </Link>
+          {isUserLoggedIn ? (
+            <SignOut
+              
+            />
+          ) : (
+            <Link
+              href="/auth/login"
+              className="hidden rounded-full px-3.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground sm:block"
+            >
+              Sign in
+            </Link>
+          )}
 
-          <Link
-            href="/auth/signup"
-            className="group inline-flex h-9 items-center gap-1.5 rounded-full bg-primary px-4 text-sm font-medium text-primary-foreground shadow-sm transition-all duration-200 hover:-translate-y-px hover:bg-primary/90 hover:shadow-md"
-          >
-            Get started
+          {!isUserLoggedIn && (
+            <Link
+              href="/auth/signup"
+              className="group inline-flex h-9 items-center gap-1.5 rounded-full bg-primary px-4 text-sm font-medium text-primary-foreground shadow-sm transition-all duration-200 hover:-translate-y-px hover:bg-primary/90 hover:shadow-md"
+            >
+              Get started
 
-            <ArrowUpRight className="size-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </Link>
+              <ArrowUpRight className="size-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </Link>
+          )}
         </div>
       </div>
     </header>
